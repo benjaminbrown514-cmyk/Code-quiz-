@@ -7,4 +7,7 @@
   ##Installation
   The steps are open my url then go download my the files js.script and index.html. From there open the browser and take the quiz.
   ##Mockup
+  urls of my code. 
+  file:///Users/benjaminbrown514gmail.com/Downloads/IMG_0018.HEIC
+  file:///Users/benjaminbrown514gmail.com/Downloads/JPG%202.HEIC
   
