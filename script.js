@@ -17,19 +17,36 @@ var numQues = 0;
 //Variable to keep track of the score
 var score = 0;
 //Array to store (initials, score) pair in Local storage
-var scoreList = [];
+var scoreList = [
+    {"High Scores: ",  btn1:"1",  btn2:"2" , btn3:"3", btn4:"4"} 
+
+];
 
 //array to store all the questions, theirs choices of answers and correct answer
 var questionList = [
-   // {ques:"Commonly used data types do NOT include: ", btn1:"1. strings", btn2:"2. boolean", btn3:"3. alerts", btn4:"4. numbers", ans:"3. alerts"},
-    //YOUR CODE
+    {ques:"Commonly used data types do NOT include: ", btn1:"1. strings", btn2:"2. boolean", btn3:"3. alerts", btn4:"4. numbers", ans:"3. alerts"},
+    {ques: "Arrays in JavaScript can be used to store: ", btn1:"1. number and strings ", btn2:"2. other arrays", btn3:"3. booleans", btn4:"4. all of the above", ans: "4. all of the above "},
+    {ques: "Strings values must be enclosed within when being assigned to variables:", btn1:"1. commas ", btn2:"2. curly brackets", btn3:"3. quotes", btn4: "4. paranthesis", ans:"3. quotes" },
+    {ques:"A very useful tool used during development and debugging for printing content is: ", btn1: "1. Javascript", btn2:"2.terminal/bash", btn3: "3. loops", btn4: "4. console.log", ans: "4. console.log" },
+    {ques:"The condition in an if/else statement is enclosed with ", btn1: "1.  quotes", btn2: "2. curly brackets", btn3: "3. paranthesis", btn4: "square brackets", ans: "3. paranthesis"}
+         //YOUR CODE
 ]
+
+function sendMessage(){
+    timer.textContent = "time is done" 
+    
+}
+
+function  sendMessage1(){
+    questionList
+}
  
 //Timer function  - it is executed when Start button is pressed
 function startTimer() {
     var timerInterval = setInterval(function() {
         timeLeft--;
-        timeLeft.textContent = timeLeft + "time left on quiz"
+        timer.textContent = timeLeft + "time left on quiz"
+    
 
         if(timeLeft === 0){
             clearInterval(timerInterval);
@@ -46,7 +63,12 @@ function startTimer() {
 
 //Function to run the quiz
 function runQuiz() {
-    
+    initCard.textContent = "Click Start button to star the timed quiz. Remember a wrong answer will detect time from the timer"
+    startBtn = null; 
+    sendMessage1(); 
+    timeLeft = 75;
+    startTimer();
+
     //YOUR CODE
 }
 
@@ -58,6 +80,9 @@ function saveResults() {
     };
 
     localStorage.setItem("user", JSON.stringify(user));
+    score.textContent = "Your final score is "
+    initials.textContent = "Enter initials:" 
+    initials = null; 
 
 
     
