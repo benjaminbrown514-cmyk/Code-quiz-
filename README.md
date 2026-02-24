@@ -1,13 +1,66 @@
 # <Code-quiz->
 ##Description
-- My motivation for doing this project was to continue to build off what we went over and try it myself.
-- I built this project to test out and to see if I could apply something of the stuff we went over.
-- It solves the problem of me learning how to make a quiz based browser.
-- I learned some of the coding needed to make this browser.
-  ##Installation
-  The steps are open my url then go download my the files js.script and index.html. From there open the browser and take the quiz.
-  ##Mockup
-  urls of my code. 
-  file:///Users/benjaminbrown514gmail.com/Downloads/IMG_0018.HEIC
-  file:///Users/benjaminbrown514gmail.com/Downloads/JPG%202.HEIC
+04 Web APIs: Code Quiz
+Description
+The goal of this project was to build a timed code quiz that tests a user's knowledge of JavaScript fundamentals. This application runs in the browser and features dynamically updated HTML and CSS, powered by JavaScript logic.
+
+Building this application helped me practice:
+
+DOM Manipulation: Dynamically creating and updating elements.
+
+Asynchronous JavaScript: Using setInterval and clearInterval to manage a game clock.
+
+Client-side Storage: Using localStorage to persist high scores and user initials.
+
+Event Handling: Capturing user input to trigger logic based on correct or incorrect answers.
+
+Installation
+Clone the repository to your local machine.
+
+Open index.html in your preferred web browser (Chrome, Firefox, or Edge).
+
+No additional dependencies or installations are required.
+
+Usage
+To use the quiz application:
+
+Click the Start Quiz button to begin the timer and view the first question.
+
+Read the question and click one of the multiple-choice buttons.
+
+If you answer correctly, you move to the next question.
+
+If you answer incorrectly, 10 seconds are subtracted from the timer as a penalty.
+
+The game ends when all questions are answered or the timer reaches 0.
+
+Once finished, enter your initials and click Submit to save your score to the local leaderboard.
+
+Features
+Responsive Design: The UI adapts to different screen sizes.
+
+Dynamic Timer: A countdown that doubles as the player's final score.
+
+Persistent High Scores: A separate high scores page that retrieves data from the browser's local storage.
+
+Interactive Feedback: Visual or text-based cues when a user selects an answer.
+
+Credits
+Starter code/User Story provided by [Bootcamp Name/Organization].
+
+MDN Web Docs for JavaScript Array Methods.
+
+Google Fonts for the [Font Name] typography.
+
+License
+Licensed under the MIT License.
+
+Tips for your Repository:
+
+Add a Screenshot: Once your app is finished, take a screenshot or record a quick GIF of the gameplay and add it to a assets/images folder. You can display it in the README using ![Alt Text](./assets/images/screenshot.png).
+
+Deployed Link: If you host this on GitHub Pages, make sure to add the live link at the very top under the main title.
+
+##Mockup
+  
   
