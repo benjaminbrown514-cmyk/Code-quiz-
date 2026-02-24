@@ -129,8 +129,9 @@ function getScoreListString(link) {
 function getResults(btnValue) {
     var getResults = JSON.parse(localStorage.getItem("Results"))
     var values = "";
-    if (questionList[numQues].ans == btnValue) 
-    
+    if (questionList[numQues].ans == btnValue){
+        
+    }    
     
 
     //YOUR CODE
@@ -251,6 +252,7 @@ function init() {
 
 //Call init
 init();
+
 
 
 
