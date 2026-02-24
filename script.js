@@ -18,7 +18,7 @@ var numQues = 0;
 var score = 0;
 //Array to store (initials, score) pair in Local storage
 var scoreList = [
-    {"High Scores: ",  btn1:"1",  btn2:"2" , btn3:"3", btn4:"4"} 
+    
 
 ];
 
@@ -32,14 +32,29 @@ var questionList = [
          //YOUR CODE
 ]
 
+
+
 function sendMessage(){
     timer.textContent = "time is done" 
     
 }
 
-function  sendMessage1(){
-    questionList
+function  advanceQuestion(){
+    if (numQues >= questionList.length - 1){ // end quiz
+         }
+    numQues += 1
+    var data = [questionList[numQues].btn1, questionList[numQues].btn2, questionList[numQues].btn3, questionList[numQues].btn4]
+    initCard.innerHTML = ''
+    initCard.textContent = questionList[numQues].ques
+    for (i = 0; i < 4; i++){
+         const btn = document.createElement('button')
+         btn.textContent = data[i]
+         initCard.appendChild(btn)
+    }   
+    
+    
 }
+
  
 //Timer function  - it is executed when Start button is pressed
 function startTimer() {
@@ -63,11 +78,10 @@ function startTimer() {
 
 //Function to run the quiz
 function runQuiz() {
-    initCard.textContent = "Click Start button to star the timed quiz. Remember a wrong answer will detect time from the timer"
-    startBtn = null; 
-    sendMessage1(); 
     timeLeft = 75;
-    startTimer();
+    numQues = -1;
+    startTimer() 
+    advanceQuestion()
 
     //YOUR CODE
 }
@@ -81,8 +95,9 @@ function saveResults() {
 
     localStorage.setItem("user", JSON.stringify(user));
     score.textContent = "Your final score is "
+    var initials
     initials.textContent = "Enter initials:" 
-    initials = null; 
+    initials.textContent.entered
 
 
     
@@ -113,7 +128,11 @@ function getScoreListString(link) {
 //Function to calculate if the user selected correct response
 function getResults(btnValue) {
     var getResults = JSON.parse(localStorage.getItem("Results"))
-    var values = ""; 
+    var values = "";
+    if (questionList[numQues].ans == btnValue) 
+    
+    
+
     //YOUR CODE
 }
 
@@ -145,7 +164,7 @@ wrapper.addEventListener("click", function (event) {
         console.log("Start button clicked");
 
         //start the timer when start button is clicked
-        startTimer();
+        runQuiz();
 
     } else if (element.innerHTML === "Submit") { //Submit Button
 
@@ -200,11 +219,12 @@ wrapper.addEventListener("click", function (event) {
 
         //answer is correct
         if (answer === true) {
-            
+            score += 1
+            advanceQuestion()
             //YOUR CODE
 
         } else { //answer is wrong
-           
+           advanceQuestion()
             //YOUR CODE
             
         }
@@ -231,4 +251,6 @@ function init() {
 
 //Call init
 init();
+
+
 
