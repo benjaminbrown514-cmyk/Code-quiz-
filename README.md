@@ -55,11 +55,7 @@ Google Fonts for the [Font Name] typography.
 License
 Licensed under the MIT License.
 
-Tips for your Repository:
 
-Add a Screenshot: Once your app is finished, take a screenshot or record a quick GIF of the gameplay and add it to a assets/images folder. You can display it in the README using ![Alt Text](./assets/images/screenshot.png).
-
-Deployed Link: If you host this on GitHub Pages, make sure to add the live link at the very top under the main title.
 
 ##Mockup
   
