@@ -17,10 +17,12 @@ var numQues = 0;
 //Variable to keep track of the score
 var score = 0;
 //Array to store (initials, score) pair in Local storage
-var scoreList = [
+var scoreList = [ 
     
 
 ];
+
+var timer1 = null;
 
 //array to store all the questions, theirs choices of answers and correct answer
 var questionList = [
@@ -28,9 +30,10 @@ var questionList = [
     {ques: "Arrays in JavaScript can be used to store: ", btn1:"1. number and strings ", btn2:"2. other arrays", btn3:"3. booleans", btn4:"4. all of the above", ans: "4. all of the above "},
     {ques: "Strings values must be enclosed within when being assigned to variables:", btn1:"1. commas ", btn2:"2. curly brackets", btn3:"3. quotes", btn4: "4. paranthesis", ans:"3. quotes" },
     {ques:"A very useful tool used during development and debugging for printing content is: ", btn1: "1. Javascript", btn2:"2.terminal/bash", btn3: "3. loops", btn4: "4. console.log", ans: "4. console.log" },
-    {ques:"The condition in an if/else statement is enclosed with ", btn1: "1.  quotes", btn2: "2. curly brackets", btn3: "3. paranthesis", btn4: "square brackets", ans: "3. paranthesis"}
+    {ques:"The condition in an if/else statement is enclosed with ", btn1: "1. quotes", btn2: "2. curly brackets", btn3: "3. paranthesis", btn4: "4. square brackets", ans: "3. paranthesis"}
          //YOUR CODE
 ]
+
 
 
 
@@ -40,7 +43,10 @@ function sendMessage(){
 }
 
 function  advanceQuestion(){
-    if (numQues >= questionList.length - 1){ // end quiz
+    console.log("hello")
+    if (numQues >= questionList.length - 1){ 
+        saveResults() 
+        return  // end quiz
          }
     numQues += 1
     var data = [questionList[numQues].btn1, questionList[numQues].btn2, questionList[numQues].btn3, questionList[numQues].btn4]
@@ -49,6 +55,7 @@ function  advanceQuestion(){
     for (i = 0; i < 4; i++){
          const btn = document.createElement('button')
          btn.textContent = data[i]
+         btn.className = 'btn'
          initCard.appendChild(btn)
     }   
     
@@ -58,22 +65,26 @@ function  advanceQuestion(){
  
 //Timer function  - it is executed when Start button is pressed
 function startTimer() {
-    var timerInterval = setInterval(function() {
+    function timerInterval(){
         timeLeft--;
         timer.textContent = timeLeft + "time left on quiz"
     
 
-        if(timeLeft === 0){
-            clearInterval(timerInterval);
-
-            sendMessage();
+        if(timeLeft == 0){
+            stopTimer()
+            numQues = 99
+            advanceQuestion() 
+            sendMessage(); 
         }
-    }, 1000);
+    };
+    timer1 = setInterval(timerInterval, 1000)
 
 }
 
     //YOUR CODE
-
+function stopTimer(){
+    clearInterval(timer1)
+}
 
 
 //Function to run the quiz
@@ -89,15 +100,18 @@ function runQuiz() {
 
 // Function to save users score and initial - this is called when Timer is done or all the questions are done and timer is set to zero.
 function saveResults() {
-    var user = {
-        score
-    };
+    stopTimer()
+    score = timeLeft
+    timer.textContent = ''
+    initCard.textContent =  'You scored ' + score + 'Enter your initials'
+    const textInput = document.createElement('input')
+    textInput.id = "InitialsV"
+    initCard.appendChild(textInput)
+    const btn = document.createElement('button')
+    btn.textContent = "Submit"
+    initCard.appendChild(btn) 
+    
 
-    localStorage.setItem("user", JSON.stringify(user));
-    score.textContent = "Your final score is "
-    var initials
-    initials.textContent = "Enter initials:" 
-    initials.textContent.entered
 
 
     
@@ -127,21 +141,49 @@ function getScoreListString(link) {
 
 //Function to calculate if the user selected correct response
 function getResults(btnValue) {
+    console.log('no')
     var getResults = JSON.parse(localStorage.getItem("Results"))
     var values = "";
-    if (questionList[numQues].ans == btnValue){
+    if(questionList[numQues].ans == btnValue){
+         console.log("correct answer")
+         result.textContent = 'correct'  
+         return true 
+                        
+    }
+    else{
+        console.log("false answer")
+        result.textContent = 'false' 
+        return false 
         
-    }    
+    }
+        
+    
     
 
     //YOUR CODE
 }
 
+
 //Function to show results list in the card on the page
 function showResults(event) {
-    event.preventDefault();
-    console.log(event);
-    var response = "Results"
+    score = timeLeft 
+    initCard.innerHTML = ''
+    result.textContent = ''
+    initCard.textContent = "High Scores:"
+    const table = document.createElement('p')
+    table.className = 'span'
+    table.innerHTML = getScoreListString(false)
+    initCard.appendChild(table)
+    const btn = document.createElement('button')
+    btn.textContent = "Go Back"
+    btn.className = 'btn'
+    initCard.appendChild(btn) 
+    const btn1 = document.createElement('button')
+    btn1.textContent = "Clear High Scores"
+    btn1.className = 'btn'
+    initCard.appendChild(btn1) 
+    
+    
 
 
  //YOUR CODE
@@ -153,8 +195,10 @@ wrapper.addEventListener("click", function (event) {
     var answer = false;
     console.log(element);
     event.preventDefault();
-
-    if (element.innerHTML === "View High Scores") {  //View High Scores
+    if (element.id === "InitialsV"){
+        console.log("initials input clicked")
+    }
+    else if (element.innerHTML === "View High Scores") {  //View High Scores
         console.log("View high score clicked");
 
         //YOUR CODE
@@ -170,13 +214,13 @@ wrapper.addEventListener("click", function (event) {
     } else if (element.innerHTML === "Submit") { //Submit Button
 
         console.log("Submit clicked");
-
+        initials = document.getElementById("InitialsV")
         //userScore object to store scores in local storage
         var userScore = {
             initials: initials.value.trim(),
             score: score
         };
-
+        console.log(userScore)
         //add the latest userScore to the ScoreList
         scoreList[scoreList.length] = userScore;
 
@@ -196,7 +240,7 @@ wrapper.addEventListener("click", function (event) {
 
        location.reload();
 
-    } else if (element.innerHTML === "Clear high Scores") {  //Clear High Score Button
+    } else if (element.innerHTML === "Clear High Scores") {  //Clear High Score Button
  
         console.log("Clear High Score clicked");
 
@@ -212,23 +256,24 @@ wrapper.addEventListener("click", function (event) {
         console.log("One of the answer button clicked");
 
         //Return if all questions are done
-        if(numQues === 5)
+        if(numQues == 4){
+            saveResults()
             return;
-        
+        }
         //check if answer is correct or wrong
         answer = getResults(element.innerHTML);
 
-        //answer is correct
-        if (answer === true) {
-            score += 1
-            advanceQuestion()
+        //answer is wrong
+        if (answer == false) {
+            timeLeft -= 5
+            
             //YOUR CODE
 
-        } else { //answer is wrong
+        }  
            advanceQuestion()
             //YOUR CODE
             
-        }
+        
 
     } else {
         console.log("Ignore redundant clicks.");
@@ -252,7 +297,6 @@ function init() {
 
 //Call init
 init();
-
 
 
 
