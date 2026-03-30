@@ -1,6 +1,7 @@
 Homework 5: Code Quiz
 A timed, interactive coding quiz designed to test knowledge of JavaScript fundamentals. This application features a countdown timer, dynamic HTML/CSS updates via JavaScript, and a local storage system for tracking high scores.
 
+
 TABLE OF CONTENTS:
 The Project
 
@@ -16,6 +17,8 @@ Usage
 
 Credits
 
+
+
 THE PROJECT:
 This project focuses on using Web APIs and JavaScript to manipulate the DOM (Document Object Model) and handle client-side data storage. The application is a responsive, browser-based quiz that challenges users to answer questions within a time limit.
 
@@ -26,6 +29,7 @@ AS A coding student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 
 SO THAT I can gauge my progress compared to my peers
+
 
 ACCEPTANCE CRITERIA:
 The application meets the following requirements:
@@ -40,6 +44,7 @@ Game Over: The quiz ends when all questions are answered or the timer reaches ze
 
 Score Tracking: Users can save their initials and final score to a leaderboard stored in the browser.
 
+
 FEATURES:
 Dynamic UI: JavaScript handles the switching between the start screen, the quiz questions, and the end-game score submission.
 
@@ -49,6 +54,7 @@ Persistent High Scores: Utilizes localStorage to keep track of previous attempts
 
 Feedback Loop: Provides immediate feedback when a question is answered.
 
+
 INSTALLATION:
 To view the project locally:
 
@@ -57,6 +63,7 @@ Clone this repository to your local machine.
 Navigate to the project directory.
 
 Open index.html in your preferred web browser.
+
 
 USAGE:
 Start: Click the "Start Quiz" button.
@@ -69,8 +76,10 @@ Finish: Once the quiz is complete, enter your initials in the provided text box.
 
 Save: Click "Submit" to save your score. You can view the high score board to see how you rank.
 
+
 CREDITS:
 Starter Code: Provided by [Instructional Team/School Name]
+
 
 Developer: [Your Name]
 url links:(https://github.com/benjaminbrown514-cmyk/Code-quiz-/blob/main/README.md) 
