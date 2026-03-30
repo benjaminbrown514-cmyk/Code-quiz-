@@ -1,60 +1,78 @@
-# <Code-quiz->
-##Description
-04 Web APIs: Code Quiz
-Description
-The goal of this project was to build a timed code quiz that tests a user's knowledge of JavaScript fundamentals. This application runs in the browser and features dynamically updated HTML and CSS, powered by JavaScript logic.
+Homework 5: Code Quiz
+A timed, interactive coding quiz designed to test knowledge of JavaScript fundamentals. This application features a countdown timer, dynamic HTML/CSS updates via JavaScript, and a local storage system for tracking high scores.
 
-Building this application helped me practice:
+Table of Contents
+The Project
 
-DOM Manipulation: Dynamically creating and updating elements.
+User Story
 
-Asynchronous JavaScript: Using setInterval and clearInterval to manage a game clock.
-
-Client-side Storage: Using localStorage to persist high scores and user initials.
-
-Event Handling: Capturing user input to trigger logic based on correct or incorrect answers.
-
-Installation
-Clone the repository to your local machine.
-
-Open index.html in your preferred web browser (Chrome, Firefox, or Edge).
-
-No additional dependencies or installations are required.
-
-Usage
-To use the quiz application:
-
-Click the Start Quiz button to begin the timer and view the first question.
-
-Read the question and click one of the multiple-choice buttons.
-
-If you answer correctly, you move to the next question.
-
-If you answer incorrectly, 10 seconds are subtracted from the timer as a penalty.
-
-The game ends when all questions are answered or the timer reaches 0.
-
-Once finished, enter your initials and click Submit to save your score to the local leaderboard.
+Acceptance Criteria
 
 Features
-Responsive Design: The UI adapts to different screen sizes.
 
-Dynamic Timer: A countdown that doubles as the player's final score.
+Installation
 
-Persistent High Scores: A separate high scores page that retrieves data from the browser's local storage.
-
-Interactive Feedback: Visual or text-based cues when a user selects an answer.
+Usage
 
 Credits
-Starter code/User Story provided by [Bootcamp Name/Organization].
 
-MDN Web Docs for JavaScript Array Methods.
+The Project
+This project focuses on using Web APIs and JavaScript to manipulate the DOM (Document Object Model) and handle client-side data storage. The application is a responsive, browser-based quiz that challenges users to answer questions within a time limit.
 
-Google Fonts for the [Font Name] typography.
+User Story
 
-License
-Licensed under the MIT License.
+AS A coding student
 
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+
+SO THAT I can gauge my progress compared to my peers
+
+Acceptance Criteria
+The application meets the following requirements:
+
+Start Functionality: Clicking the "Start" button triggers a timer and displays the first question.
+
+Question Progression: Answering a question automatically leads to the next one.
+
+Time Penalty: If a user answers incorrectly, time is subtracted from the remaining clock.
+
+Game Over: The quiz ends when all questions are answered or the timer reaches zero.
+
+Score Tracking: Users can save their initials and final score to a leaderboard stored in the browser.
+
+Features
+Dynamic UI: JavaScript handles the switching between the start screen, the quiz questions, and the end-game score submission.
+
+Responsive Design: Polished CSS ensures the quiz is accessible on various screen sizes.
+
+Persistent High Scores: Utilizes localStorage to keep track of previous attempts even after the page is refreshed.
+
+Feedback Loop: Provides immediate feedback when a question is answered.
+
+Installation
+To view the project locally:
+
+Clone this repository to your local machine.
+
+Navigate to the project directory.
+
+Open index.html in your preferred web browser.
+
+Usage
+Start: Click the "Start Quiz" button.
+
+Answer: Read the question and click one of the multiple-choice options.
+
+Note: Incorrect answers will deduct 10 seconds (or specified amount) from your total time.
+
+Finish: Once the quiz is complete, enter your initials in the provided text box.
+
+Save: Click "Submit" to save your score. You can view the high score board to see how you rank.
+
+Credits
+Starter Code: Provided by [Instructional Team/School Name]
+
+Developer: [Your Name]
 url links:(https://github.com/benjaminbrown514-cmyk/Code-quiz-/blob/main/README.md) 
 (https://benjaminbrown514-cmyk.github.io/Code-quiz-/) 
 
